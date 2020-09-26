@@ -161,3 +161,112 @@ let eighteenPlus = /eighteen\+/
 // let regexp = new RegExp("\\b" + escaped + "\\b", "gi");
 // console.log(text.replace(regexp, "_$&_"));
 // console.log(escaped);
+
+
+// The Search Method
+// console.log("worded ".search(/\d/));
+
+
+// LastIndex Property
+// let text = 'The Lazy Brown Dog';
+// let text2 = /\lazy/g; // or/y (sticky)
+// text2.lastIndex = 10;   //if /y: this must be the exact position of searched item
+// let check = text2.exec('some lazy people lazy');
+// console.log(check);
+// console.log(check.index);
+
+// console.log('banana'.match(/an/g)); //['an','an']
+
+
+//  LOOPING over Matches
+// let input = "A 4 string with 3 numbers in it...42 and 88.";
+// let number = /\b\d+\b/g;
+// // number.lastIndex = 0
+// let match;
+// while (match = number.exec(input)) {
+//     console.log("Found", match[0], "at", match.index);
+// }
+// console.log(number.exec(input));
+
+
+// PARSING an INI file
+// function parseINI(string) {
+//     // Start with an object to hold the top-level fields
+//     let result = {};
+//     let section = result;
+//     string.split(/\r?\n/).forEach(line => {
+//         let match;
+//         if(match = line.match(/^(\w+)=(.*)$/)) {
+//             section[match[1]] = match[2];
+//         } else if(match = line.match(/^\[(.*)\]$/)) {
+//             section = result[match[1]] = {};
+//         } else if(!/^\s*(;.*)?$/.test(line)) {
+//             throw new Error("Line '" + line + "'is not valid.");
+//         }
+//     });
+//     return result;
+// }
+// console.log(parseINI(`
+// name=kenny
+// [address]
+// city=Akure`));
+
+// Exercises
+
+//(1)   REGEXP GOLF
+
+
+// car and cat
+// test = /car|cat/;
+// console.log(test.test('flcar'));
+
+// pop and prop
+// test2 = /pop|prop/;
+// console.log(test2.test('party for Afropop'));
+
+// // ferret, ferry, and ferrari
+// test3 = /ferret|ferry|ferrari/;
+// console.log(test3.test('fetaferretdan;aferari'))
+
+// // Any word ending with ious
+// test4  = /\w+?ious\b/;
+// console.log(test4.test('delicious'))
+
+// // A whitespace character followed by a period,comma, colon or semicolon
+// test5 = /\s+?.|,|:|;/;
+// console.log(test5.test(' ;'))
+
+// A word longer than six letters
+// test6 = /\w{7}/;
+// console.log(test6.test('ferrari'));
+
+// A word without the letter e (or E);
+// test7 = /e|E/;
+// console.log(!(test7.test('Long')))
+
+//(2)   QUOTING STYLE
+// string = `This is a 5 dialogue btw MrA and MrB MrA: 'How are you', 10MrB: 'Am doing good', MrA: 'Where are your family', MrB: 'They aren't here'`;
+// string2 = "This is the story: 'Am doing 'good' 'very"
+// console.log(string2);
+
+// let num = /\w+/g; 
+// let double = /'\w+\w+'/g;
+// let inWord = /^\w+'\w$/;
+// // console.log(double.test(`'word`));
+// // console.log(inWord.test(`aren't`));
+// // console.log(string2.replace(double,``));
+
+// // console.log(string.replace(/'/g, `"`));
+
+
+// function replaceQuote(match, before, after) {
+//     if (before) {
+//         before = before;
+//     }
+//     //  else if(after) {
+//     //     after[after.length-1] = `"`;
+//     // }
+//     return before;
+// }
+
+// console.log(string2.replace(double, replaceQuote));
